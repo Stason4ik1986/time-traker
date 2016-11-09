@@ -40,10 +40,10 @@
                 <span class="quick-time">{{spentTime(dateFormater(projectTask.dateBegin), dateFormater(projectTask.dateFinish))}}</span>
             </div>
             <div class="item-list list-item-time-range">
-                <span>{{getTimeWithoutSeconds(dateFormater(projectTask.dateBegin))}} - {{getTimeWithoutSeconds(dateFormater(projectTask.dateFinish))}}</span>
+                <span>{{dateFormater(projectTask.dateBegin) | date: "HH:mm"}} - {{dateFormater(projectTask.dateFinish) | date: "HH:mm"}}</span>
             </div>
             <div class="item-list list-item-date">
-                <span>{{dateFormater(projectTask.dateFinish).toLocaleDateString()}}</span>
+                <span>{{dateFormater(projectTask.dateFinish) | date: "dd MMM yyyy"}}</span>
             </div>
         </li>
     </ul>

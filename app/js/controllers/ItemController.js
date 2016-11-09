@@ -80,7 +80,4 @@ timeTracker.controller('ItemController', ['$scope', '$timeout', '$localStorage',
         $scope.dateFormater = function (dateStr) {
             return new Date(dateStr);
         };
-        $scope.getTimeWithoutSeconds = function (date) {
-            return date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        }
     }]);
