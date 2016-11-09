@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-cloak ng-controller="ItemController">
-<header id="tracker-wrap" class="tracker-wrap fullwidth">
+<header id="tracker-wrap" class="tracker-wrap full-width">
     <div class="width">
         <div class="time-tracker">
             <div class="tracker-element tracker-input">
@@ -31,7 +31,7 @@
         <li class="item-lists-wrap" ng-repeat="projectTask in projectTasks">
             <div class="item-list item-list-task">{{projectTask.taskName}}</div>
             <div class="item-list item-list-project">
-                <div ng-if="projectTask.currentProject !== 'Select project'" >{{projectTask.currentProject}}</div>
+                <div ng-if="projectTask.currentProject !== 'Select project'">{{projectTask.currentProject}}</div>
             </div>
             <div class="item-list item-list-button">
                 <button id="quick-start" class="item-list item-list-button start"><span ng-click="quickStartTimer(projectTask)"></span></button>

@@ -64,12 +64,12 @@ button {
   outline: 0;
 }
 button.start {
-    background-image: linear-gradient(to bottom, #1B2BE2 0%, #4BDDE2 100%);
-}
-button.stop {
     background-image: linear-gradient(to bottom, #E909B1 0%, #B712E9 100%);
 }
-.fullwidth {
+button.stop {
+    background-image: linear-gradient(to bottom, #1B2BE2 0%, #4BDDE2 100%);
+}
+.full-width {
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
