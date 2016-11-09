@@ -38,19 +38,6 @@ timeTracker.controller('ItemController', ['$scope', '$timeout', '$localStorage',
             $scope.started = false;
             $scope.valueButton = "Start";
         };
-        $scope.dateFormater = function (dateStr) {
-            return new Date(dateStr);
-        };
-        function sortProjects(a, b) {
-            var result = 0;
-            if (a.dateFinish > b.dateFinish) {
-                result = -1;
-            }
-            if (a.dateFinish < b.dateFinish) {
-                result = 1;
-            }
-            return result;
-        };
         $scope.quickStartTimer = function (projectTasks) {
             if ($scope.currentTask.dateBegin !== undefined) {
                 $scope.stopTimer();
@@ -79,6 +66,21 @@ timeTracker.controller('ItemController', ['$scope', '$timeout', '$localStorage',
             if (seconds < 10) seconds = '0' + seconds;
             spentTime = hours + ':' + minutes + ':' + seconds;
             return spentTime;
-
         };
+        function sortProjects(a, b) {
+            var result = 0;
+            if (a.dateFinish > b.dateFinish) {
+                result = -1;
+            }
+            if (a.dateFinish < b.dateFinish) {
+                result = 1;
+            }
+            return result;
+        }
+        $scope.dateFormater = function (dateStr) {
+            return new Date(dateStr);
+        };
+        $scope.getTimeWithoutSeconds = function (date) {
+            return date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }
     }]);

@@ -34,13 +34,13 @@
                 <div ng-if="projectTask.currentProject !== 'Select project'">{{projectTask.currentProject}}</div>
             </div>
             <div class="item-list item-list-button">
-                <button id="quick-start" class="item-list item-list-button start"><span ng-click="quickStartTimer(projectTask)"></span></button>
+                <button id="quick-start" ng-click="quickStartTimer(projectTask)" class="item-list item-list-button start"><span></span></button>
             </div>
             <div class="item-list item-list-timer">
                 <span class="quick-time">{{spentTime(dateFormater(projectTask.dateBegin), dateFormater(projectTask.dateFinish))}}</span>
             </div>
             <div class="item-list list-item-time-range">
-                <span>{{dateFormater(projectTask.dateBegin).toLocaleTimeString()}} - {{dateFormater(projectTask.dateFinish).toLocaleTimeString()}}</span>
+                <span>{{getTimeWithoutSeconds(dateFormater(projectTask.dateBegin))}} - {{getTimeWithoutSeconds(dateFormater(projectTask.dateFinish))}}</span>
             </div>
             <div class="item-list list-item-date">
                 <span>{{dateFormater(projectTask.dateFinish).toLocaleDateString()}}</span>
