@@ -1,2 +1,2 @@
 # time-traker
-Time Traker Progect
+Time Tracker Project
