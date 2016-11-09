@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="timeTracker" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time tracker</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-cloak ng-controller="ItemController">
+<header id="tracker-wrap" class="tracker-wrap fullwidth">
+    <div class="width">
+        <div class="time-tracker">
+            <div class="tracker-element tracker-input">
+                <input class="form-control" ng-model="currentTask.taskName" placeholder="What are you working on?"/>
+            </div>
+            <div class="tracker-element tracker-select">
+                <select ng-model="currentTask.currentProject">
+                    <option ng-repeat="project in projects" value="{{project.projectName}}">{{project.projectName}}</option>
+                </select>
+            </div>
+            <div class="tracker-element timer">
+                <input ng-model="timeContainer" ng-init="timeContainer='00:00:00'">
+            </div>
+            <div class="tracker-element init-timer">
+                <button ng-class="started ? 'start' : 'stop'" ng-click="toggleStartStopTimer()" ng-bind="valueButton" ng-style="style"></button>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="tracker-items" class="tracker-items width">
+    <ul>
+        <li class="item-lists-wrap" ng-repeat="projectTask in projectTasks">
+            <div class="item-list item-list-task">{{projectTask.taskName}}</div>
+            <div class="item-list item-list-project">
+                <div ng-if="projectTask.currentProject !== 'Select project'" >{{projectTask.currentProject}}</div>
+            </div>
+            <div class="item-list item-list-button">
+                <button id="quick-start" class="item-list item-list-button start"><span ng-click="quickStartTimer(projectTask)"></span></button>
+            </div>
+            <div class="item-list item-list-timer">
+                <span class="quick-time">{{spentTime(dateFormater(projectTask.dateBegin), dateFormater(projectTask.dateFinish))}}</span>
+            </div>
+            <div class="item-list list-item-time-range">
+                <span>{{dateFormater(projectTask.dateBegin).toLocaleTimeString()}} - {{dateFormater(projectTask.dateFinish).toLocaleTimeString()}}</span>
+            </div>
+            <div class="item-list list-item-date">
+                <span>{{dateFormater(projectTask.dateFinish).toLocaleDateString()}}</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script src="bower_components/angular.min.js"></script>
+<script src="bower_components/ngStorage.min.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/controllers/ItemController.js"></script>
+<script src="js/factories/ProjectFactory.js"></script>
+
+
+</body>
+</html>
